@@ -1,4 +1,4 @@
-# ON15-TodasEmTech-S3-Lógica de Programação-II
+# ON15-TodasEmTech-S4-Lógica de Programação-III
 
 Esta é a 4ª semana da turma online Todas em Tech on15 - Back-end, nesta aula do dia 16/04/2022 teremos os seguintes conteúdos:
 
@@ -124,7 +124,7 @@ console.log(dataLonga); // sábado, 16 de abril de 2022
 const tipos = ["String", "Números", "Booleanos"];
 const cidades = new Array("Recife", "São Paulo", "Manaus");
 const cursos = "frontend backend".split(" ");
-const tecnologias = Array.of("HTML", "CSS", JS);
+const tecnologias = Array.of("HTML", "CSS", "JS");
 ```
 
 #### 2.2. Acessando o valor de um elemento da array
