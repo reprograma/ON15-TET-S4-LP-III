@@ -86,7 +86,7 @@ let data = [
         let generosEncontrados = [];
         entrada = entrada.toLowerCase();
         for (let filme of data) {
-            if (typeof (filme.genero) == "string") {
+            if (typeof(filme.genero) == "string") {
                 let titulosEncontrados = (filme.genero).toLowerCase().includes(entrada)
                 !!titulosEncontrados ? generosEncontrados.push(filme) : null;
             } else {
@@ -115,29 +115,26 @@ let data = [
 
     function encontrarFilmes(entrada){
         if(typeof(entrada) == "string"){
-            let porTitulo = encontrarPorTitulo(entrada);
             let porGenero = encontrarPorGenero(entrada);
+            let porTitulo = encontrarPorTitulo(entrada);
             let porAno = encontrarPorAno(entrada);
-            if(porTitulo.length > 0 && porGenero.length> 0 && porAno.length > 0){
+            if(porTitulo.length > 0 && porGenero.length> 0){
             console.table("--------Encontrados por título--------")
             console.table(porTitulo)
             console.table("--------------------------------------")
             console.table("--------Encontrados por gênero--------")
             console.table(porGenero)
             console.table("--------------------------------------")
-            console.table("--------Encontrados por ano--------")
-            console.table(porAno)
-            console.table("--------------------------------------")
             } else if (porTitulo.length > 0 ){
-                console.table("--------Encontrados por título--------")
+                console.table("--------Encontrados somente por título--------")
                 console.table(porTitulo)
                 console.table("--------------------------------------")
             } else if(porGenero.length > 0){
-                console.table("--------Encontrados por gênero--------")
+                console.table("--------Encontrados somente por gênero--------")
                 console.table(porGenero)
                 console.table("--------------------------------------")
             } else if(porAno.length > 0){
-                console.table("--------Encontrados por Ano--------")
+                console.table("--------Encontrados somente por Ano--------")
                 console.table(porAno)
                 console.table("--------------------------------------")
             } else {
@@ -150,16 +147,17 @@ let data = [
     }
 
         encontrarFilmes("2017");
-        console.log("--------------------------------------")
-        console.log("--------------------------------------")
-        encontrarFilmes("Suspense");
-        console.log("--------------------------------------")
-        console.log("--------------------------------------")
+        // console.log("--------------------------------------")
+        // console.log("--------------------------------------")
+        encontrarFilmes("su");
+        // console.log("--------------------------------------")
+        // console.log("--------------------------------------")
         encontrarFilmes("homem-aranha");
-        console.log("--------------------------------------")
-        console.log("--------------------------------------")
+        // console.log("--------------------------------------")
+        // console.log("--------------------------------------")
         encontrarFilmes("sci-fi");
-        console.log("--------------------------------------")
-        console.log("--------------------------------------")
-        encontrarFilmes("rom");
+        // console.log("--------------------------------------")
+        // console.log("--------------------------------------")
+        encontrarFilmes(2000);
+        encontrarFilmes("Up");
 
