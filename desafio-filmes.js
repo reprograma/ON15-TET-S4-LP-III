@@ -127,4 +127,4 @@ function buscarFilmes(entrada) {
 }
 
 
-buscarFilmes("susp")
+buscarFilmes("sus")
