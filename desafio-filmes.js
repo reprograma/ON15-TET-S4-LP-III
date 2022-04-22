@@ -1,3 +1,4 @@
+//Nome: Maria Fernanda Moreira Tavares
 let data = [
     {
       titulo: "us",
@@ -72,15 +73,15 @@ let cliente4 = "sci-fi"
 let cliente5 = "romance"
 
 function buscarPorTitulo(entrada) {
-    let filmesEncontrados = []
+    let listaPorTitulo = new Array();
     entrada = entrada.toLowerCase()
     data.forEach(filme => {
         let titulo = filme.titulo.toLowerCase()
         if (titulo.includes(entrada)) {
-            filmesEncontrados.push(filme)
+          listaPorTitulo.push(filme)
         }
     })
-    return filmesEncontrados
+    return listaPorTitulo
 }
 
 function buscarPorGenero(entrada) {
@@ -88,11 +89,15 @@ function buscarPorGenero(entrada) {
     entrada = entrada.toLowerCase()
     for (let filme of data) {
         if (typeof(filme.genero) == "string") {
-            let filmeEncontrado = (filme.genero).toLowerCase().includes(entrada)
-            !!filmeEncontrado ? listaPorGenero.push(filme) : null
+            if((filme.genero).toLowerCase().includes(entrada)) {
+              listaPorGenero.push(filme)
+            }
+            
         } else {
-            let filmeEncontradoArray = filme.genero.find(genero => genero.toLowerCase().includes(entrada))
-            filmeEncontradoArray != undefined ? listaPorGenero.push(filme) : null
+            if(filme.genero.find(genero => genero.toLowerCase().includes(entrada))){
+                  listaPorGenero.push(filme)
+            }
+            
         }
     }
     return listaPorGenero
@@ -100,31 +105,36 @@ function buscarPorGenero(entrada) {
 
 
 function buscarFilmes(entrada) {
-    if (typeof(entrada) == "string") {
+    if (typeof(entrada) == "String") {
         let porTitulo = buscarPorTitulo(entrada)
         let porGenero = buscarPorGenero(entrada)
+        console.log(`-- Com base na sua pesquisa por ${entrada} --`)
         if(porTitulo.length > 0 && porGenero.length > 0) {
-            console.log("--------Encontrados por título--------")
-            console.log(porTitulo)
-            console.log("--------------------------------------")
-            console.log("--------Encontrados por gênero--------")
+            console.log("Encontramos esses filmes:")
+            console.log(porTitulo.join("-"))
+            console.log('\n')
+            console.log("Encontramos esses filmes com esse genero:")
             console.log(porGenero)
-            console.log("--------------------------------------")
+            console.log('\n')
         } else if (porTitulo.length > 0) {
-            console.log("--------Encontrados por título--------")
+            console.log("Encontramos esses filmes:")
             console.log(porTitulo)
-            console.log("--------------------------------------")
+            console.log('\n')
         } else if (porGenero.length > 0) {
-            console.log("--------Encontrados por gênero--------")
+            console.log("Encontramos esses filmes com esse genero:")
             console.log(porGenero)
-            console.log("--------------------------------------")
+            console.log('\n')
         } else {
-            console.log("Nenhum filme ou dado foi encontrado com o valor digitado")
+            console.log("Nenhum filme encontrado :c")
         }    
     } else {
-        console.log('dado inválido')
+        console.log('Dado invalido!')
     }
 }
 
+buscarFilmes(cliente1)
+buscarFilmes(cliente2)
+buscarFilmes(cliente3)
+buscarFilmes(cliente4)
+buscarFilmes(cliente5)
 
-buscarFilmes("susp")
