@@ -98,17 +98,32 @@ function buscarPorGenero(entrada) {
     return listaPorGenero
 }
 
+function buscarPorAno(entrada) {
+    let listaPorAno = []
+    data.forEach(filme => {
+        let ano = filme.ano
+        if (ano.includes(entrada)) {
+            listaPorAno.push(filme)
+        }
+    })
+    return listaPorAno
+}
 
 function buscarFilmes(entrada) {
     if (typeof(entrada) == "string") {
         let porTitulo = buscarPorTitulo(entrada)
         let porGenero = buscarPorGenero(entrada)
-        if(porTitulo.length > 0 && porGenero.length > 0) {
+        let porAno = buscarPorAno(entrada)
+
+        if(porTitulo.length > 0 && porGenero.length > 0 && porAno.length > 0) {
             console.log("--------Encontrados por título--------")
             console.log(porTitulo)
             console.log("--------------------------------------")
             console.log("--------Encontrados por gênero--------")
             console.log(porGenero)
+            console.log("--------------------------------------")
+            console.log("--------Encontrados por ano-----------")
+            console.log(porAno)
             console.log("--------------------------------------")
         } else if (porTitulo.length > 0) {
             console.log("--------Encontrados por título--------")
@@ -117,6 +132,10 @@ function buscarFilmes(entrada) {
         } else if (porGenero.length > 0) {
             console.log("--------Encontrados por gênero--------")
             console.log(porGenero)
+            console.log("--------------------------------------")
+        } else if (porAno.length > 0) {
+            console.log("--------Encontrados por ano-----------")
+            console.log(porAno)
             console.log("--------------------------------------")
         } else {
             console.log("Nenhum filme ou dado foi encontrado com o valor digitado")
@@ -127,4 +146,7 @@ function buscarFilmes(entrada) {
 }
 
 
-buscarFilmes("susp")
+buscarFilmes("2019")
+buscarFilmes("dr")
+buscarFilmes("demon")
+buscarFilmes("ação")
