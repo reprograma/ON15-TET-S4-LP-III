@@ -1,3 +1,5 @@
+// Desafio da semana 4 - Pesquisar filme por Titulo ou Gênero 
+
 let data = [
     {
       titulo: "us",
@@ -71,6 +73,8 @@ let cliente3 = "Homem-Aranha: Sem Volta para Casa"
 let cliente4 = "sci-fi" 
 let cliente5 = "romance"
 
+// forEach 
+
 function buscarPorTitulo(entrada) {
     let filmesEncontrados = []
     entrada = entrada.toLowerCase()
@@ -82,6 +86,8 @@ function buscarPorTitulo(entrada) {
     })
     return filmesEncontrados
 }
+
+// For...of
 
 function buscarPorGenero(entrada) {
     let listaPorGenero = []
@@ -127,4 +133,4 @@ function buscarFilmes(entrada) {
 }
 
 
-buscarFilmes("susp")
+buscarFilmes("terror")

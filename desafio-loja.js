@@ -1,3 +1,6 @@
+/* Desafio da semana 4 - Refazer o exercício da semana passada trocando
+ o método utilizado por outros métodos aprendidos na aula da semana 4*/
+
 let clienteLilit = [
     {produto: 'Bolsa pequena', valor: 49.0}, 
     {produto: 'Cinto preto', valor: 22.0}, 
@@ -11,8 +14,27 @@ let clienteLilit = [
     {produto: 'Tênis casual preto', valor: 120.0}, 
     {produto: 'meia calça transparente', valor: 30.0}]
 
+let clienteSamara = [
+        {produto: 'Blusa branca', valor: 39.0}, 
+        {produto: 'short jeans', valor: 69.0}, 
+        {produto: 'Jaqueta de couro', valor: 300.0}, 
+        {produto: 'sapato branco', valor: 159.0}, 
+        {produto: 'Calça social', valor: 135.0}, 
+        {produto: 'Cinto preto', valor: 22.0},
+        {produto: 'Cropped vermelho', valor: 40.0}]
+        
+let clienteJoandra = [
+        {produto: 'Salto fino Zattini', valor: 159.0}, 
+        {produto: 'Chinelo Havaianas slim ', valor: 39.0}, 
+        {produto: 'T-shirt colorida', valor: 25.0}, 
+        {produto: 'Tênis Olympikus', valor: 179.0}, 
+        {produto: 'Calça jeans escura', valor: 130.0}, 
+        {produto: 'Blusa baby look preta', valor: 35.0}]
+
 let valorTotal = [] 
 let descontoAplicado = [] 
+
+// Função aplicada para o desconto
 
 function calcularDesconto(valor) {
     if (valor >= 200.0) {
@@ -26,14 +48,15 @@ function calcularDesconto(valor) {
     } 
 }
 
-function realizarCompra(comprasDaCliente) {
+function realizarCompras(comprasDaClientes) {
 
-    let quantidadeDeProdutos = comprasDaCliente.length
+    let quantidadeDeProdutos = comprasDaClientes.length
 
-    comprasDaCliente.forEach(item => {
+    comprasDaClientes.forEach(item => {
         valorTotal.push(item.valor)
         calcularDesconto(item.valor)
     })
+
 
     valorTotal = valorTotal.reduce((acumulador, atual) => acumulador + atual)
     descontoAplicado = descontoAplicado.reduce((acumulador, atual) => acumulador + atual)
@@ -54,11 +77,11 @@ function realizarCompra(comprasDaCliente) {
     if(quantidadeDeProdutos > 10 || valorFinal > 800.0) {
         return console.table({
             ...notaFiscal,
-            "Bônus": 'Você ganhou um cupom de R$50,00 para a sua prõxima compra'
+            "Bônus": 'Parabéns, você ganhou um cupom de R$50,00 para a sua prõxima compra'
         })
     } else {
         return console.table(notaFiscal)
     }
 }
 
-realizarCompra(clienteLilit)
+realizarCompras(clienteJoandra)
