@@ -1,5 +1,5 @@
 /* Desafio da semana 4 - Refazer o exercício da semana passada trocando
- o método utilizado pelo menos 3 dos métodos aprendidos na aula de hoje*/
+ o método utilizado por outros métodos aprendidos na aula da semana 4*/
 
 let clienteLilit = [
     {produto: 'Bolsa pequena', valor: 49.0}, 
@@ -34,6 +34,8 @@ let clienteJoandra = [
 let valorTotal = [] 
 let descontoAplicado = [] 
 
+// Função aplicada para o desconto
+
 function calcularDesconto(valor) {
     if (valor >= 200.0) {
         descontoAplicado.push(valor * 0.5)
@@ -46,14 +48,15 @@ function calcularDesconto(valor) {
     } 
 }
 
-function realizarCompra(comprasDaCliente) {
+function realizarCompras(comprasDaClientes) {
 
-    let quantidadeDeProdutos = comprasDaCliente.length
+    let quantidadeDeProdutos = comprasDaClientes.length
 
-    comprasDaCliente.forEach(item => {
+    comprasDaClientes.forEach(item => {
         valorTotal.push(item.valor)
         calcularDesconto(item.valor)
     })
+
 
     valorTotal = valorTotal.reduce((acumulador, atual) => acumulador + atual)
     descontoAplicado = descontoAplicado.reduce((acumulador, atual) => acumulador + atual)
@@ -74,13 +77,11 @@ function realizarCompra(comprasDaCliente) {
     if(quantidadeDeProdutos > 10 || valorFinal > 800.0) {
         return console.table({
             ...notaFiscal,
-            "Bônus": 'Você ganhou um cupom de R$50,00 para a sua prõxima compra'
+            "Bônus": 'Parabéns, você ganhou um cupom de R$50,00 para a sua prõxima compra'
         })
     } else {
         return console.table(notaFiscal)
     }
 }
 
-realizarCompra(clienteLilit)
-realizarCompra(clienteJoandra)
-realizarCompra(clienteSamara)
+realizarCompras(clienteJoandra)
