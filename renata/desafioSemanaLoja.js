@@ -41,18 +41,10 @@ let Maria = [
 function calcular(cliente) {
 
     
-    let valorTotal = [];
-    let quantidadeTotalPeca = " ";
-    let valorDesconto = 0;
-
-    
-    valorTotal = cliente.reduce(
-        (acumulador, elemento) => acumulador + elemento.valor, 0)   
-    
-
-    quantidadeTotalPeca = cliente.unshift(cliente.length)
-   
-    
+    let valorTotal = cliente.reduce(
+        (acumulador, elemento) => acumulador + elemento.valor, 0) ;
+    let quantidadeTotalPeca = cliente.unshift(cliente.length);
+    let valorDesconto = 0;    
 
     for (desconto of cliente) {
         if (desconto.valor >= 50.0 && desconto.valor < 80.0) {
