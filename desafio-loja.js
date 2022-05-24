@@ -11,6 +11,32 @@ let clienteLilit = [
     {produto: 'Tênis casual preto', valor: 120.0}, 
     {produto: 'meia calça transparente', valor: 30.0}]
 
+let clienteRafa = [
+    {produto: 'Jogo de Uno', valor: 19.0}, 
+    {produto: 'Domino', valor: 22.0}, 
+    {produto: 'Conjunto Moletom', valor: 429.0}, 
+    {produto: 'Short Flamengo', valor: 139.0}, 
+    {produto: 'Blusa simples', valor: 35.0}, 
+    {produto: 'Calça Cargo', valor: 130.0}, 
+    {produto: 'Blusa preta ', valor: 60.0}, 
+    {produto: 'Bone', valor: 80.0}, 
+    {produto: 'Tenis casual', valor: 250.0}, 
+    {produto: 'Tênis casual preto', valor: 120.0}, 
+    {produto: 'Havaiana', valor: 30.0}] 
+
+let clienteGabi = [
+    {produto: 'Panela de Pressão', valor: 219.0}, 
+    {produto: 'Frigideira AntiAderente', valor: 129.0}, 
+    {produto: 'Jogo de Talher', valor: 60.0}, 
+    {produto: 'Liquidificador Arno', valor: 139.0}, 
+    {produto: 'Blusa Toalha de Mesa', valor: 35.0}, 
+    {produto: 'Panos de Prato', valor: 130.0}, 
+    {produto: 'Cuzcuzeira', valor: 49.0}, 
+    {produto: 'Assadeira', valor: 80.0}, 
+    {produto: 'Panele de Arroz Eletrica', valor: 120.0}, 
+    {produto: 'Sanduicheira', valor: 120.0}, 
+    {produto: 'Abridor', valor: 30.0}] 
+
 let valorTotal = [] 
 let descontoAplicado = [] 
 
@@ -50,7 +76,9 @@ function realizarCompra(comprasDaCliente) {
             second: 'numeric'
         })
     }
-
+     valorTotal = [] 
+     descontoAplicado = []
+     
     if(quantidadeDeProdutos > 10 || valorFinal > 800.0) {
         return console.table({
             ...notaFiscal,
@@ -62,3 +90,5 @@ function realizarCompra(comprasDaCliente) {
 }
 
 realizarCompra(clienteLilit)
+realizarCompra(clienteRafa)
+realizarCompra(clienteGabi)
